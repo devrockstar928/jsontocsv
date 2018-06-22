@@ -39,6 +39,8 @@ def save_to_csv(output_csv, fields_list, columns):
     df_obj = df.select_dtypes(['object'])
     df[df_obj.columns] = df_obj.apply(lambda x: x.str.strip())
 
+    df = df.applymap(lambda x: " ".join(sorted(set(x.split()), key=x.split().index)))
+
     # df = df.applymap(lambda x: x.strip() if type(x) is str else x)
     df.to_csv(output_csv, sep='\t', encoding='utf-8', index=False)
 
