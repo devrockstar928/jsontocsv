@@ -82,6 +82,7 @@ def main():
     for item in extra_fields_list:
         if item['key'] not in extra_fields:
             extra_fields.append(item['key'])
+    
     print('--------------- Saving to extra.csv file ---------------')
     save_to_csv(os.path.join(csv_path, extra_csv), extra_fields_list, extra_fields)
     print('--------------- extra.csv file already saved ---------------')
